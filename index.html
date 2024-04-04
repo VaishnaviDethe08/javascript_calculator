@@ -5,29 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Calculator</title>
    <style>
-
+        body {
+            text-align: center;
+            margin: 80px;
+            font-size: 40px;
+        }
+        .clk {
+            background-color: aqua;
+            width: 600px;
+            font-weight: bolder;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
    </style>
 </head>
 <body>
+    <div id="clock" class="clk">
+
+    </div>
     <script>
-  let date1 = new Date("01/16/2024");
-let date2 = new Date("01/26/2024");
- 
+      function updateClock()
+      {
+        const date = new Date();
+        const timeString = date.toLocaleString();
+        document.getElementById("clock").innerText = timeString;
+      }
 
-let Difference_In_Time =
-    date2.getTime() - date1.getTime();
- 
-
-let Difference_In_Days =
-    Math.round
-        (Difference_In_Time / (1000 * 3600 * 24));
- 
-
-console.log
-    ("Total number of days between dates:\n" +
-        date1.toDateString() + " and " +
-        date2.toDateString() +
-        " is: " + Difference_In_Days + " days");
+      setInterval(updateClock,1000)
+      updateClock();
     </script>
 </body>
 </html>
